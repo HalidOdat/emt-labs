@@ -28,14 +28,14 @@ public class CountryRestController {
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
-    @PutMapping("/add")
+    @PostMapping("/add")
     public ResponseEntity<Country> save(@RequestParam String name, @RequestParam String continent) {
         return this.countryService.save(name, continent)
                 .map(country -> ResponseEntity.ok().body(country))
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
-    @PostMapping("/edit/{id}")
+    @PutMapping("/edit/{id}")
     public ResponseEntity<Country> save(@PathVariable Long id,
                                         @RequestParam String name, @RequestParam String continent) {
         return this.countryService.update(id, name, continent)

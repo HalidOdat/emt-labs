@@ -28,7 +28,7 @@ public class AuthorRestController {
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
-    @PutMapping("/add")
+    @PostMapping("/add")
     public ResponseEntity<Author> save(@RequestParam String name,
                                        @RequestParam String surname,
                                        @RequestParam Long countryId) {
@@ -37,7 +37,7 @@ public class AuthorRestController {
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
-    @PostMapping("/edit/{id}")
+    @PutMapping("/edit/{id}")
     public ResponseEntity<Author> update(@PathVariable Long id,
                                          @RequestParam String name,
                                          @RequestParam String surname,
